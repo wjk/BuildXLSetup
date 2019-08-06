@@ -1,0 +1,40 @@
+﻿<Project>
+  <Import Project="..\BuildXL.Setup.BuildTasks\BuildXL.Setup.BuildTasks.targets" />
+
+  <PropertyGroup>
+    <HarvestDirectoryDependsOn>
+      $(HarvestDirectoryDependsOn);
+      BxlDownloadBxl;
+    </HarvestDirectoryDependsOn>
+  </PropertyGroup>
+
+  <PropertyGroup>
+    <BxlNuGetFeed>https://pkgs.dev.azure.com/ms/BuildXL/_packaging/BuildXL/nuget/v3/index.json</BxlNuGetFeed>
+    <BxlNuGetPackageName>Microsoft.BuildXL.win-x64</BxlNuGetPackageName>
+    <BxlNuGetVersion>0.1.0-20190803.1</BxlNuGetVersion>
+
+    <DefineConstants>
+      BxlNuGetDir=$(IntermediateOutputPath)BxlNuGet\$(BxlNuGetPackageName).$(BxlNuGetVersion);
+      $(WixVariables)
+    </DefineConstants>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <HarvestDirectory Include="$(IntermediateOutputPath)BxlNuGet\$(BxlNuGetPackageName).$(BxlNuGetVersion)">
+      <DirectoryRefId>INSTALLFOLDER</DirectoryRefId>
+      <ComponentGroupName>BuildXL.NuGet</ComponentGroupName>
+      <AdditionalOptions>-platform x64</AdditionalOptions>
+      <SuppressRootDirectory>true</SuppressRootDirectory>
+      <PreprocessorVariable>var.BxlNuGetDir</PreprocessorVariable>
+      
+      <SuppressCom>true</SuppressCom>
+      <SuppressRegistry>true</SuppressRegistry>
+    </HarvestDirectory>
+  </ItemGroup>
+  
+  <Target Name="BxlDownloadBxl" Condition="!Exists('$(IntermediateOutputPath)BxlNuGet\$(BxlNuGetPackageName).$(BxlNuGetPackageVersion)')">
+    <MakeDir Directories="$(IntermediateOutputPath)BxlNuGet" />
+    <InstallNuGetPackage OutputDirectory="$(IntermediateOutputPath)BxlNuGet"
+                         Feed="$(BxlNuGetFeed)" PackageName="$(BxlNuGetPackageName)" PackageVersion="$(BxlNuGetVersion)" />
+  </Target>
+</Project>
