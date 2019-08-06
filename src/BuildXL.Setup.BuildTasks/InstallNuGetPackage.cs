@@ -23,7 +23,7 @@ namespace BuildXL.Setup.BuildTasks
         protected override string GenerateFullPathToTool()
         {
             string location = typeof(InstallNuGetPackage).Assembly.Location;
-            return Path.GetDirectoryName(location);
+            return Path.Combine(Path.GetDirectoryName(location), "NuGet.exe");
         }
 
         protected override string GenerateCommandLineCommands()
