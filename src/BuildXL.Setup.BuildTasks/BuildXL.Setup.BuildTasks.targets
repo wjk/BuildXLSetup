@@ -1,0 +1,9 @@
+﻿<Project>
+  <Target Name="BxlGetBuildTasksPath">
+    <MSBuild Projects="$(MSBuildThisFileDirectory)BuildXL.Setup.BuildTasks.csproj" Targets="BxlGetTasksPathForDependentProjects">
+      <Output TaskParameter="TargetOutputs" PropertyName="BxlTasksAssemblyFile" />
+    </MSBuild>
+  </Target>
+
+  <UsingTask TaskName="InstallNuGetPackage" AssemblyFile="$(BxlTasksAssemblyFile)" />
+</Project>

@@ -16,4 +16,14 @@
       <Visible>false</Visible>
     </Content>
   </ItemGroup>
+
+  <ItemGroup>
+    <None Include="BuildXL.Setup.BuildTasks.targets" />
+  </ItemGroup>
+
+  <Target Name="BxlGetTasksPathForDependentProjects" DependsOnTargets="Build" Returns="@(BxlTasksPath)">
+    <ItemGroup>
+      <BxlTasksPath Include="$(OutputDirectory)$(TargetName).dll" />
+    </ItemGroup>
+  </Target>
 </Project>
