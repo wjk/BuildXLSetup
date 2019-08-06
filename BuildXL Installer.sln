@@ -5,6 +5,7 @@ VisualStudioVersion = 16.0.29123.88
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "build", "build", "{4DE2079C-928B-486A-ADF0-DBD8A8E92778}"
 	ProjectSection(SolutionItems) = preProject
+		.editorconfig = .editorconfig
 		src\Directory.Build.props = src\Directory.Build.props
 	EndProjectSection
 EndProject
