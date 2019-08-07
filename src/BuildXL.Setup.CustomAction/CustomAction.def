@@ -1,0 +1,4 @@
+LIBRARY "BuildXL.Setup.CustomAction.dll"
+
+EXPORTS
+	BrowseForInstallFolder PRIVATE
