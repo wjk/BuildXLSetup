@@ -12,6 +12,9 @@ EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BuildXL.Setup.BuildTasks", "src\BuildXL.Setup.BuildTasks\BuildXL.Setup.BuildTasks.csproj", "{332E03E3-40AE-4BD5-AD2B-F4C901D8433F}"
 EndProject
 Project("{930C7802-8A8C-48F9-8165-68863BCCD9DD}") = "BuildXL.Setup", "src\BuildXL.Setup\BuildXL.Setup.wixproj", "{602A0827-F6AD-4995-A023-E0E088B063A2}"
+	ProjectSection(ProjectDependencies) = postProject
+		{332E03E3-40AE-4BD5-AD2B-F4C901D8433F} = {332E03E3-40AE-4BD5-AD2B-F4C901D8433F}
+	EndProjectSection
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "BuildXL.Setup.CustomAction", "src\BuildXL.Setup.CustomAction\BuildXL.Setup.CustomAction.vcxproj", "{7313B7FC-056B-490A-8C4A-A9CD96003664}"
 EndProject
