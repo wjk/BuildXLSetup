@@ -8,6 +8,7 @@
 
     <Feature Id="ProductFeature" Title="BuildXL" Level="1">
       <ComponentGroupRef Id="BuildXL.NuGet" />
+      <ComponentGroupRef Id="BuildXL.ShellIntegration" />
     </Feature>
 
     <Property Id="WIXUI_INSTALLDIR" Value="INSTALLFOLDER" />

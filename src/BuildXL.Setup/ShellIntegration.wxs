@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Wix xmlns="http://schemas.microsoft.com/wix/2006/wi">
+  <Fragment>
+    <ComponentGroup Id="BuildXL.ShellIntegration" Directory="INSTALLFOLDER">
+      <Component Id="cmpShellResourcesDLL" Guid="*">
+        <File Id="filShellResourcesDLL" KeyPath="yes" Source="$(var.BuildXL.ShellResources.TargetPath)" />
+
+        <RegistryKey Root="HKCR" Key="BuildXL.DScript">
+          <RegistryValue Type="string" Value="BuildXL DScript File" />
+          <RegistryValue Name="FriendlyTypeName" Type="string" Value="@[#filShellResourcesDLL],-1" />
+
+          <RegistryKey Key="DefaultIcon">
+            <RegistryValue Type="string" Value="@[#filShellResourcesDLL],-1" />
+          </RegistryKey>
+
+          <RegistryKey Key="shell">
+            <RegistryKey Key="edit">
+              <RegistryKey Key="command">
+                <RegistryValue Type="expandable" Value="%SystemRoot%\system32\notepad.exe %1" />
+              </RegistryKey>
+            </RegistryKey>
+          </RegistryKey>
+        </RegistryKey>
+
+        <RegistryKey Root="HKCR" Key=".dsc">
+          <RegistryKey Key="OpenWithProgids">
+            <RegistryValue Name="BuildXL.DScript" Type="string" Value="" />
+          </RegistryKey>
+
+          <RegistryKey Key="BuildXL.DScript">
+            <RegistryKey Key="ShellNew">
+              <RegistryValue Name="ItemName" Type="string" Value="@[#filShellResourcesDLL],-2" />
+              <RegistryValue Name="IconPath" Type="string" Value="@[#filShellResourcesDLL],-1" />
+              <RegistryValue Name="NullFile" Type="string" Value="" />
+            </RegistryKey>
+          </RegistryKey>
+        </RegistryKey>
+      </Component>
+    </ComponentGroup>
+  </Fragment>
+</Wix>

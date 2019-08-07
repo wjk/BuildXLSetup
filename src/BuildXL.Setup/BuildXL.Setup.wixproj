@@ -47,6 +47,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="Product.wxs" />
+    <Compile Include="ShellIntegration.wxs" />
     <Compile Include="UserInterface.wxs" />
   </ItemGroup>
   <ItemGroup>
@@ -66,6 +67,14 @@
       <DoNotHarvest>True</DoNotHarvest>
       <RefProjectOutputGroups>
       </RefProjectOutputGroups>
+      <RefTargetDir>INSTALLFOLDER</RefTargetDir>
+    </ProjectReference>
+    <ProjectReference Include="..\BuildXL.ShellResources\BuildXL.ShellResources.vcxproj">
+      <Name>BuildXL.ShellResources</Name>
+      <Project>{98dedce4-9073-4839-9f5d-b3d26daf212b}</Project>
+      <Private>True</Private>
+      <DoNotHarvest>True</DoNotHarvest>
+      <RefProjectOutputGroups>Binaries;Content;Satellites</RefProjectOutputGroups>
       <RefTargetDir>INSTALLFOLDER</RefTargetDir>
     </ProjectReference>
   </ItemGroup>
