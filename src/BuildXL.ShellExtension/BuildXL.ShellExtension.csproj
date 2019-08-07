@@ -9,9 +9,6 @@
     <RuntimeIdentifier>win10-x64</RuntimeIdentifier>
     <NoWarn>NU1701</NoWarn>
   </PropertyGroup>
-  <ItemGroup>
-    <None Include="app.manifest" />
-  </ItemGroup>
 
   <ItemGroup>
     <PackageReference Include="Sunburst.ResourceGeneration" Version="3.0.1" />
@@ -19,5 +16,6 @@
 
   <ItemGroup>
     <EmbeddedResource Update="StringResources.resx" Generator="MSBuild:PrepareResources" />
+    <None Include="app.manifest" />
   </ItemGroup>
 </Project>
