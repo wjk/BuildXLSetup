@@ -10,16 +10,11 @@ using System.Windows.Forms;
 
 namespace BuildXL.Setup.Designer
 {
-    public partial class Form1 : Form
+    public partial class WelcomeDialog : Form
     {
-        public Form1()
+        public WelcomeDialog()
         {
             InitializeComponent();
-        }
-
-        private void buttonExit_Click(object sender, EventArgs e)
-        {
-            Application.Exit();
         }
     }
 }
