@@ -20,9 +20,7 @@
   <Fragment>
     <Directory Id="TARGETDIR" Name="SourceDir">
       <Directory Id="ProgramFiles64Folder">
-        <Directory Id="INSTALLFOLDER" Name="BuildXL">
-          <Directory Id="INSTALLFOLDER_SHELLEX" Name="ShellExtension" />
-        </Directory>
+        <Directory Id="INSTALLFOLDER" Name="BuildXL" />
       </Directory>
     </Directory>
   </Fragment>
