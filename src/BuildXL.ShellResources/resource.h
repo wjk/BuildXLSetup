@@ -4,6 +4,7 @@
 //
 #define IDS_DSC_FILE_DESCRIPTION        1
 #define IDI_BUILDXL                     1
+#define IDS_DSC_SHELLNEW_ACTION         2
 
 // Next default values for new objects
 // 
