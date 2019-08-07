@@ -5,7 +5,7 @@
 
     <Authors>William Kent</Authors>
     <Copyright>Copyright © 2019 William Kent. All rights reserved.</Copyright>
-    <Product>BuildXL Installer</Product>
+    <Product>BuildXL</Product>
 
     <AssemblyVersion Condition="'$(AssemblyVersion)' == ''">1.0.0.0</AssemblyVersion>
     <FileVersion Condition="'$(FileVersion)' == '' and '$(AssemblyVersion)' != ''">$(AssemblyVersion)</FileVersion>
