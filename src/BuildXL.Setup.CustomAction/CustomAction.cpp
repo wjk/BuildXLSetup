@@ -57,7 +57,7 @@ LExit:
     // Instead, display an error dialog.
     if (FAILED(hr)) {
         CString title; title.LoadStringW(IDS_TITLE);
-        CString message; title.FormatMessageW(IDS_SELECT_FOLDER_ERROR_MESSAGE, hr);
+        CString message; message.FormatMessageW(IDS_SELECT_FOLDER_ERROR_MESSAGE, hr);
         ::MessageBoxW(hWndParent, message.GetString(), title.GetString(), MB_OK | MB_ICONERROR);
     }
 
