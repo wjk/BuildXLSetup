@@ -12,6 +12,9 @@
 
     <Property Id="WIXUI_INSTALLDIR" Value="INSTALLFOLDER" />
     <UIRef Id="BuildXL.Setup.UI" />
+
+    <Icon Id="BuildXL.ico" SourceFile="Resources\BuildXL.ico"/>
+    <Property Id="ARPPRODUCTICON" Value="BuildXL.ico" />
   </Product>
 
   <Fragment>
