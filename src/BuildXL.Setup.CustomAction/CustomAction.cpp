@@ -47,7 +47,7 @@ INT __stdcall BrowseForInstallFolder(MSIHANDLE hInstall)
     filePath.ReleaseBuffer();
     ExitOnFailure(hr, "Could not extract filesystem path from IShellItem");
 
-    hr = WcaSetProperty(L"SetupUI_InstallFolder", filePath.GetString());
+    hr = WcaSetProperty(L"WIXUI_INSTALLDIR", filePath.GetString());
     ExitOnFailure(hr, "MsiSetPropertyW() failed");
     
     hr = S_OK;
