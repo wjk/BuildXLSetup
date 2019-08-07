@@ -14,7 +14,7 @@ namespace BuildXL.ShellExtension
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
 
-            MessageBox.Show(StringResources.DoNotRunDirectlyDialog_Instruction, StringResources.DoNotRunDirectlyDialog_WindowTitle,
+            MessageBox.Show(StringResources.DoNotRunDirectlyDialog_Instruction, StringResources.WindowTitle,
                 MessageBoxButtons.OK, MessageBoxIcon.Error);
         }
     }

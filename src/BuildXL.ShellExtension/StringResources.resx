@@ -120,7 +120,7 @@
   <data name="DoNotRunDirectlyDialog_Instruction" xml:space="preserve">
     <value>Please do not run this application directly.</value>
   </data>
-  <data name="DoNotRunDirectlyDialog_WindowTitle" xml:space="preserve">
+  <data name="WindowTitle" xml:space="preserve">
     <value>BuildXL Shell Helper</value>
   </data>
 </root>
