@@ -120,6 +120,9 @@
   <data name="DoNotRunDirectlyDialog_Instruction" xml:space="preserve">
     <value>Please do not run this application directly.</value>
   </data>
+  <data name="FileNotFoundDialog_Instruction" xml:space="preserve">
+    <value>The file "{0}" was not found.</value>
+  </data>
   <data name="WindowTitle" xml:space="preserve">
     <value>BuildXL Shell Helper</value>
   </data>
