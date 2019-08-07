@@ -15,6 +15,8 @@ Project("{930C7802-8A8C-48F9-8165-68863BCCD9DD}") = "BuildXL.Setup", "src\BuildX
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "BuildXL.Setup.CustomAction", "src\BuildXL.Setup.CustomAction\BuildXL.Setup.CustomAction.vcxproj", "{7313B7FC-056B-490A-8C4A-A9CD96003664}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "BuildXL.ShellResources", "src\BuildXL.ShellResources\BuildXL.ShellResources.vcxproj", "{98DEDCE4-9073-4839-9F5D-B3D26DAF212B}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x64 = Debug|x64
@@ -31,6 +33,10 @@ Global
 		{7313B7FC-056B-490A-8C4A-A9CD96003664}.Debug|x64.ActiveCfg = Debug|Win32
 		{7313B7FC-056B-490A-8C4A-A9CD96003664}.Debug|x64.Build.0 = Debug|Win32
 		{7313B7FC-056B-490A-8C4A-A9CD96003664}.Release|x64.ActiveCfg = Release|Win32
+		{98DEDCE4-9073-4839-9F5D-B3D26DAF212B}.Debug|x64.ActiveCfg = Debug|x64
+		{98DEDCE4-9073-4839-9F5D-B3D26DAF212B}.Debug|x64.Build.0 = Debug|x64
+		{98DEDCE4-9073-4839-9F5D-B3D26DAF212B}.Release|x64.ActiveCfg = Release|x64
+		{98DEDCE4-9073-4839-9F5D-B3D26DAF212B}.Release|x64.Build.0 = Release|x64
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
