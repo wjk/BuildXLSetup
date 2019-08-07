@@ -1,6 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Wix xmlns="http://schemas.microsoft.com/wix/2006/wi">
   <Fragment>
+    <WixVariable Id="WixUIBannerBmp" Value=".\Resources\Banner.bmp" />
+    <WixVariable Id="WixUIDialogBmp" Value=".\Resources\Dialog.bmp" />
+    <WixVariable Id="WixUIExclamationIco" Value=".\Resources\warning.ico" />
+    <WixVariable Id="WixUIInfoIco" Value=".\Resources\info.ico" />
+
     <UI Id="BuildXL.Setup.UI">
       <TextStyle Id="WixUI_Font_Normal" FaceName="Segoe UI" Size="9" />
       <TextStyle Id="WixUI_Font_Title" FaceName="Segoe UI" Size="9" Bold="yes" />
