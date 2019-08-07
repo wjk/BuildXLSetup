@@ -61,7 +61,7 @@ LExit:
         ::MessageBoxW(hWndParent, message.GetString(), title.GetString(), MB_OK | MB_ICONERROR);
     }
 
-    return WcaFinalize(ERROR_SUCCESS);
+    return WcaFinalize(SUCCEEDED(hr) ? ERROR_SUCCESS : ERROR_INSTALL_FAILURE);
 }
 
 extern "C" BOOL WINAPI DllMain(HINSTANCE hInst, ULONG ulReason, LPVOID)
