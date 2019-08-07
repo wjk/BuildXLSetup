@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Wix xmlns="http://schemas.microsoft.com/wix/2006/wi">
+  <Fragment>
+    <UI Id="BuildXL.Setup.UI">
+      <TextStyle Id="SetupUI.Font" FaceName="Segoe UI" Size="9" />
+      <TextStyle Id="SetupUI.TitleFont" FaceName="Segoe UI" Size="12" Red="0" Green="51" Blue="153" />
+      <Property Id="DefaultUIFont" Value="SetupUI.Font" />
+    </UI>
+  </Fragment>
+</Wix>
