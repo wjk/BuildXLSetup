@@ -12,7 +12,7 @@ INT __stdcall BrowseForInstallFolder(MSIHANDLE hInstall)
     CComPtr<IModalWindow> modalWindow;
     CComPtr<IShellItem> shellItem;
     CStringW strTitle, filePath;
-    HWND hWndParent;
+    HWND hWndParent = FindWindowW(L"MsiDialogCloseClass", nullptr);
 
     hr = WcaInitialize(hInstall, "BrowseForInstallFolder");
     ExitOnFailure(hr, "Failed to initialize");
@@ -27,7 +27,6 @@ INT __stdcall BrowseForInstallFolder(MSIHANDLE hInstall)
     hr = fileDialog->SetOptions(FOS_FORCEFILESYSTEM | FOS_PICKFOLDERS | FOS_NOTESTFILECREATE | FOS_DONTADDTORECENT);
     ExitOnFailure(hr, "IFileDialog::SetOptions() failed");
 
-    hWndParent = FindWindowW(L"MsiDialogCloseClass", nullptr);
     hr = fileDialog.QueryInterface(&modalWindow);
     ExitOnFailure(hr, "IFileDialog::QueryInterface(IModalWindow) failed");
     
