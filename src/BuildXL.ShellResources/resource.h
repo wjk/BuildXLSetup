@@ -3,8 +3,7 @@
 // Used by BuildXL.ShellResources.rc
 //
 #define IDS_DSC_FILE_DESCRIPTION        1
-#define IDI_ICON1                       102
-#define IDI_BUILDXL                     102
+#define IDI_BUILDXL                     1
 
 // Next default values for new objects
 // 
