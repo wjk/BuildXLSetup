@@ -4,6 +4,7 @@
     <ComponentGroup Id="BuildXL.ShellIntegration" Directory="INSTALLFOLDER">
       <Component Id="cmpShellResourcesDLL" Guid="*">
         <File Id="filShellResourcesDLL" KeyPath="yes" Source="$(var.BuildXL.ShellResources.TargetPath)" />
+        <Environment Id="envPATH" Name="PATH" Value="[INSTALLFOLDER]" System="yes" Part="last" Permanent="no" />
 
         <RegistryKey Root="HKCR" Key="BuildXL.DScript">
           <RegistryValue Type="string" Value="BuildXL DScript File" />
