@@ -9,6 +9,9 @@
     <Feature Id="ProductFeature" Title="BuildXL" Level="1">
       <ComponentGroupRef Id="BuildXL.NuGet" />
     </Feature>
+
+    <Property Id="WIXUI_INSTALLDIR" Value="INSTALLFOLDER" />
+    <UIRef Id="BuildXL.Setup.UI" />
   </Product>
 
   <Fragment>
@@ -19,5 +22,10 @@
         </Directory>
       </Directory>
     </Directory>
+  </Fragment>
+
+  <Fragment>
+    <Binary Id="BxlCustomAction" SourceFile="$(var.BuildXL.Setup.CustomAction.TargetPath)" />
+    <CustomAction Id="BrowseForInstallFolder" BinaryKey="BxlCustomAction" DllEntry="BrowseForInstallFolder" Return="ignore" Execute="immediate" />
   </Fragment>
 </Wix>
