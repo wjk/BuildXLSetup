@@ -29,5 +29,6 @@
   <Fragment>
     <Binary Id="BxlCustomAction" SourceFile="$(var.BuildXL.Setup.CustomAction.TargetPath)" />
     <CustomAction Id="BrowseForInstallFolder" BinaryKey="BxlCustomAction" DllEntry="BrowseForInstallFolder" Return="ignore" Execute="immediate" />
+    <CustomActionRef Id="WixBroadcastEnvironmentChange" />
   </Fragment>
 </Wix>
