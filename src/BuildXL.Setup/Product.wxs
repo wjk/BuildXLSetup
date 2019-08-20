@@ -16,6 +16,12 @@
 
     <Icon Id="BuildXL.ico" SourceFile="Resources\BuildXL.ico"/>
     <Property Id="ARPPRODUCTICON" Value="BuildXL.ico" />
+
+    <WixVariable Id="WixUIBannerBmp" Value=".\Resources\Banner.bmp" />
+    <WixVariable Id="WixUIDialogBmp" Value=".\Resources\Dialog.bmp" />
+    <WixVariable Id="WixUIExclamationIco" Value=".\Resources\warning.ico" />
+    <WixVariable Id="WixUIInfoIco" Value=".\Resources\info.ico" />
+    <UIRef Id="WixUI_InstallDir" />
   </Product>
 
   <Fragment>
@@ -24,11 +30,7 @@
         <Directory Id="INSTALLFOLDER" Name="BuildXL" />
       </Directory>
     </Directory>
-  </Fragment>
 
-  <Fragment>
-    <Binary Id="BxlCustomAction" SourceFile="$(var.BuildXL.Setup.CustomAction.TargetPath)" />
-    <CustomAction Id="BrowseForInstallFolder" BinaryKey="BxlCustomAction" DllEntry="BrowseForInstallFolder" Return="ignore" Execute="immediate" />
     <CustomActionRef Id="WixBroadcastEnvironmentChange" />
   </Fragment>
 </Wix>

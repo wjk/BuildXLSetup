@@ -48,7 +48,6 @@
   <ItemGroup>
     <Compile Include="Product.wxs" />
     <Compile Include="ShellIntegration.wxs" />
-    <Compile Include="UserInterface.wxs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="BuildXL.Setup.targets" />
@@ -64,15 +63,6 @@
     </WixExtension>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\BuildXL.Setup.CustomAction\BuildXL.Setup.CustomAction.vcxproj">
-      <Name>BuildXL.Setup.CustomAction</Name>
-      <Project>{7313b7fc-056b-490a-8c4a-a9cd96003664}</Project>
-      <Private>True</Private>
-      <DoNotHarvest>True</DoNotHarvest>
-      <RefProjectOutputGroups>
-      </RefProjectOutputGroups>
-      <RefTargetDir>INSTALLFOLDER</RefTargetDir>
-    </ProjectReference>
     <ProjectReference Include="..\BuildXL.ShellResources\BuildXL.ShellResources.vcxproj">
       <Name>BuildXL.ShellResources</Name>
       <Project>{98dedce4-9073-4839-9f5d-b3d26daf212b}</Project>
