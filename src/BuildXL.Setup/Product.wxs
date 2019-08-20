@@ -12,7 +12,7 @@
     </Feature>
 
     <Property Id="WIXUI_INSTALLDIR" Value="INSTALLFOLDER" />
-    <UIRef Id="BuildXL.Setup.UI" />
+    <UIRef Id="WixUI_InstallDir" />
 
     <Icon Id="BuildXL.ico" SourceFile="Resources\BuildXL.ico"/>
     <Property Id="ARPPRODUCTICON" Value="BuildXL.ico" />
@@ -21,7 +21,6 @@
     <WixVariable Id="WixUIDialogBmp" Value=".\Resources\Dialog.bmp" />
     <WixVariable Id="WixUIExclamationIco" Value=".\Resources\warning.ico" />
     <WixVariable Id="WixUIInfoIco" Value=".\Resources\info.ico" />
-    <UIRef Id="WixUI_InstallDir" />
   </Product>
 
   <Fragment>
