@@ -2,10 +2,11 @@
   <Import Project="..\BuildXL.Setup.BuildTasks\BuildXL.Setup.BuildTasks.targets" />
 
   <PropertyGroup>
-    <HarvestDirectoryDependsOn>
-      $(HarvestDirectoryDependsOn);
+    <ResolveReferencesDependsOn>
+      $(ResolveReferencesDependsOn);
       BxlDownloadBxl;
-    </HarvestDirectoryDependsOn>
+      BxlAddHarvest;
+    </ResolveReferencesDependsOn>
   </PropertyGroup>
 
   <PropertyGroup>
@@ -19,22 +20,31 @@
     </DefineConstants>
   </PropertyGroup>
 
-  <ItemGroup>
-    <HarvestDirectory Include="$(IntermediateOutputPath)BxlNuGet\$(BxlNuGetPackageName).$(BxlNuGetVersion)">
-      <DirectoryRefId>INSTALLFOLDER</DirectoryRefId>
-      <ComponentGroupName>BuildXL.NuGet</ComponentGroupName>
-      <AdditionalOptions>-platform x64</AdditionalOptions>
-      <SuppressRootDirectory>true</SuppressRootDirectory>
-      <PreprocessorVariable>var.BxlNuGetDir</PreprocessorVariable>
-      
-      <SuppressCom>true</SuppressCom>
-      <SuppressRegistry>true</SuppressRegistry>
-    </HarvestDirectory>
-  </ItemGroup>
-  
+  <Target Name="BxlAddHarvest" DependsOnTargets="BxlDownloadBxl">
+    <ItemGroup>
+      <HarvestDirectory Include="$(IntermediateOutputPath)BxlNuGet\$(BxlNuGetPackageName).$(BxlNuGetVersion)">
+        <DirectoryRefId>INSTALLFOLDER</DirectoryRefId>
+        <ComponentGroupName>BuildXL.NuGet</ComponentGroupName>
+        <PreprocessorVariable>var.BxlNuGetDir</PreprocessorVariable>
+        <AdditionalOptions>-platform x64</AdditionalOptions>
+
+        <SuppressCom>true</SuppressCom>
+        <SuppressRegistry>true</SuppressRegistry>
+        <SuppressRootDirectory>true</SuppressRootDirectory>
+      </HarvestDirectory>
+    </ItemGroup>
+  </Target>
+
   <Target Name="BxlDownloadBxl" Condition="!Exists('$(IntermediateOutputPath)BxlNuGet\$(BxlNuGetPackageName).$(BxlNuGetPackageVersion)')">
     <MakeDir Directories="$(IntermediateOutputPath)BxlNuGet" />
     <InstallNuGetPackage OutputDirectory="$(IntermediateOutputPath)BxlNuGet"
                          Feed="$(BxlNuGetFeed)" PackageName="$(BxlNuGetPackageName)" PackageVersion="$(BxlNuGetVersion)" />
+
+    <ItemGroup>
+      <_Delete Include="$(IntermediateOutputPath)BxlNuGet\$(BxlNuGetPackageName).$(BxlNuGetPackageVersion)\$(BxlNuGetPackageName).$(BxlNuGetPackageVersion).nupkg" />
+    </ItemGroup>
+
+    <Message Text="Deleting %(_Delete.Identity)" Condition="Exists('%(_Delete.Identity)')" />
+    <Delete Files="@(_Delete)" />
   </Target>
 </Project>
