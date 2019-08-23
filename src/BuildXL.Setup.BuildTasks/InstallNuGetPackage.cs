@@ -17,6 +17,40 @@ namespace BuildXL.Setup.BuildTasks
         public string PackageName { get; set; }
         [Required]
         public string PackageVersion { get; set; }
+        [Required]
+        public ITaskItem PackageCacheDirectory { get; set; }
+
+        public override bool Execute()
+        {
+            string movedAsideFile = Path.Combine(PackageCacheDirectory.ItemSpec, $"{PackageName}.{PackageVersion}.nupkg");
+            string packageFile = Path.Combine(OutputDirectory.ItemSpec, $"{PackageName}.{PackageVersion}", $"{PackageName}.{PackageVersion}.nupkg");
+            if (File.Exists(movedAsideFile))
+            {
+                Log.LogMessage(MessageImportance.Normal, "Moving {0} to {1}", movedAsideFile, packageFile);
+                File.Move(movedAsideFile, packageFile);
+            }
+
+            bool success = base.Execute();
+
+            if (success)
+            {
+                if (File.Exists(packageFile))
+                {
+                    Log.LogMessage(MessageImportance.Normal, "Moving {0} to {1}", packageFile, movedAsideFile);
+                    File.Move(packageFile, movedAsideFile);
+                }
+            }
+            else
+            {
+                if (File.Exists(packageFile))
+                {
+                    Log.LogWarning("Deleting possible corrupted file {0}", packageFile);
+                    File.Delete(packageFile);
+                }
+            }
+
+            return success;
+        }
 
         protected override string ToolName => "NuGet.exe";
 

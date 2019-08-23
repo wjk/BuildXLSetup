@@ -37,14 +37,9 @@
 
   <Target Name="BxlDownloadBxl" Condition="!Exists('$(IntermediateOutputPath)BxlNuGet\$(BxlNuGetPackageName).$(BxlNuGetPackageVersion)')">
     <MakeDir Directories="$(IntermediateOutputPath)BxlNuGet" />
-    <InstallNuGetPackage OutputDirectory="$(IntermediateOutputPath)BxlNuGet"
+    <MakeDir Directories="$(IntermediateOutputPath)moved-aside" />
+
+    <InstallNuGetPackage OutputDirectory="$(IntermediateOutputPath)BxlNuGet" PackageCacheDirectory="$(IntermediateOutputPath)moved-aside"
                          Feed="$(BxlNuGetFeed)" PackageName="$(BxlNuGetPackageName)" PackageVersion="$(BxlNuGetVersion)" />
-
-    <ItemGroup>
-      <_Delete Include="$(IntermediateOutputPath)BxlNuGet\$(BxlNuGetPackageName).$(BxlNuGetPackageVersion)\$(BxlNuGetPackageName).$(BxlNuGetPackageVersion).nupkg" />
-    </ItemGroup>
-
-    <Message Text="Deleting %(_Delete.Identity)" Condition="Exists('%(_Delete.Identity)')" />
-    <Delete Files="@(_Delete)" />
   </Target>
 </Project>
