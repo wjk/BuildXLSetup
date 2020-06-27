@@ -12,7 +12,7 @@ steps:
 
 - task: MSBuild@1
   inputs:
-    solution: 'BuildXL Installer.sln'
+    solution: 'src\BuildXL Installer.sln'
     msbuildArchitecture: 'x64'
     platform: 'X64'
     configuration: 'Debug'
