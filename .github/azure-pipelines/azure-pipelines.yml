@@ -10,11 +10,7 @@ steps:
     nuget.exe restore
   displayName: 'Restoring packages with nuget'
 
-- task: MSBuild@1
-  inputs:
-    solution: 'src\BuildXL Installer.sln'
-    msbuildArchitecture: 'x64'
-    platform: 'X64'
-    configuration: 'Debug'
-    maximumCpuCount: true
-  displayName: Building with MSBuild
+- script: |
+    pushd src
+    "C:\Program Files (x86)\Microsoft Visual Studio\2019\Enterprise\MSBuild\Current\Bin\amd64\msbuild.exe" "BuildXL Installer.sln" /m /p:Configuration=Debug /p:Platform=x64 /nologo
+  displayName: 'Building with MSBuild'
