@@ -9,3 +9,12 @@ steps:
     pushd src
     nuget.exe restore
   displayName: 'Restoring packages with nuget'
+
+- task: MSBuild@1
+  inputs:
+    solution: 'BuildXL Installer.sln'
+    msbuildArchitecture: 'x64'
+    platform: 'X64'
+    configuration: 'Debug'
+    maximumCpuCount: true
+  displayName: Building with MSBuild
