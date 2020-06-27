@@ -3,16 +3,14 @@ trigger:
 
 pool:
   vmImage: 'windows-latest'
-
+  
 steps:
-
-- task: NuGetCommand@2
-  inputs:
-    command: 'restore'
-    restoreSolution: 'src/BuildXL Install.sln'
-    feedsToUse: 'select'
-  displayName: 'Restoring packages with nuget'
-
+  
+- script: |
+  pushd src
+  nuget.exe restore
+displayName: 'Restoring packages with nuget'
+ 
 - task: MSBuild@1
   inputs:
     solution: 'src\BuildXL Installer.sln'
