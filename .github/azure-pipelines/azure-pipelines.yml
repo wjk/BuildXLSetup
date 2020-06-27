@@ -5,12 +5,19 @@ pool:
   vmImage: 'windows-latest'
 
 steps:
-- script: |
-    pushd src
-    nuget.exe restore
+
+- task: NuGetCommand@2
+  inputs:
+    command: 'restore'
+    restoreSolution: 'src/BuildXL Install.sln'
+    feedsToUse: 'select'
   displayName: 'Restoring packages with nuget'
 
-- script: |
-    pushd src
-    "C:\Program Files (x86)\Microsoft Visual Studio\2019\Enterprise\MSBuild\Current\Bin\amd64\msbuild.exe" "BuildXL Installer.sln" /m /p:Configuration=Debug /p:Platform=x64 /nologo
+- task: MSBuild@1
+  inputs:
+    solution: 'src\BuildXL Installer.sln'
+    msbuildArchitecture: 'x64'
+    platform: 'x64'
+    configuration: 'Debug'
+    maximumCpuCount: true
   displayName: 'Building with MSBuild'
