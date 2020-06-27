@@ -1,0 +1,11 @@
+trigger:
+- master
+
+pool:
+  vmImage: 'windows-latest'
+
+steps:
+- script: |
+    pushd src
+    nuget.exe restore
+  displayName: 'Restoring packages with nuget'
