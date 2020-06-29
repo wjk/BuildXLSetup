@@ -71,7 +71,7 @@ namespace BuildXL.Setup.BuildTasks
             argv.Add(Feed);
             argv.Add(PackageName);
             argv.Add("-Version");
-            argv.Add("latest");
+            argv.Add(PackageVersion);
 
             return string.Join(" ", argv.Select(arg =>
             {
