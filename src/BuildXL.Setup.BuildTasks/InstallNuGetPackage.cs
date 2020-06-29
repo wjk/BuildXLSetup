@@ -70,6 +70,8 @@ namespace BuildXL.Setup.BuildTasks
             argv.Add("-Source");
             argv.Add(Feed);
             argv.Add(PackageName);
+            argv.Add("-Version");
+            argv.Add("latest");
 
             return string.Join(" ", argv.Select(arg =>
             {
