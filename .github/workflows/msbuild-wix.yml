@@ -16,10 +16,6 @@ jobs:
     - name: Setup MSBuild
       uses: microsoft/setup-msbuild@v1
     - name: Nuget restore
-      run: |
-        pushd src
-        nuget restore
+      run: pushd src && nuget restore
     - name: Run MSBuild
-      run: |
-        pushd src
-        msbuild "BuildXL Installer.sln" /m
+      run: pushd src && msbuild "BuildXL Installer.sln" /m
