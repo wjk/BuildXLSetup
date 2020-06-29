@@ -18,4 +18,4 @@ jobs:
     - name: Nuget restore
       run: pushd src && nuget restore
     - name: Run MSBuild
-      run: pushd src && msbuild "BuildXL Installer.sln" /m
+      run: pushd src && msbuild /m
