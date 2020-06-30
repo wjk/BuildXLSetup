@@ -1,4 +1,5 @@
 trigger:
+
 - master
 
 pool:
@@ -18,3 +19,9 @@ steps:
     configuration: 'Debug'
     maximumCpuCount: true
   displayName: 'Building with MSBuild'
+
+- task: PublishPipelineArtifact@1
+  inputs:
+    targetPath: '$(Pipeline.Workspace)\src\BuildXL.Setup\bin\x64\Debug\BuildXL.Setup.msi'
+    artifact: 'BuildXL Installer MSI'
+    publishLocation: 'pipeline'
