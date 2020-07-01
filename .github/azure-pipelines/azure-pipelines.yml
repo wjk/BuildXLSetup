@@ -7,9 +7,9 @@ pool:
   
 steps:
 - script: |
-    "C:\\Program Files (x86)\\Microsoft Visual Studio\\2019\\Enterprise\\VC\\Auxiliary\\Build\\vcvars64.bat"
+    call "C:\\Program Files (x86)\\Microsoft Visual Studio\\2019\\Enterprise\\VC\\Auxiliary\\Build\\vcvars64.bat"
     pushd src
-    NMake.exe
+    call NMake.exe
   displayName: 'Running NMAKE'
  
 - task: PublishPipelineArtifact@1
