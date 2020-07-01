@@ -7,19 +7,11 @@ pool:
   
 steps:
 - script: |
+    "C:\\Program Files (x86)\\Microsoft Visual Studio\\2019\\Community\\VC\\Auxiliary\\Build\\vcvars64.bat"
     pushd src
-    nuget.exe restore
-  displayName: 'Restoring packages with nuget'
+    NMake.exe
+  displayName: 'Running NMAKE'
  
-- task: MSBuild@1
-  inputs:
-    solution: 'src\BuildXL Installer.sln'
-    msbuildArchitecture: 'x64'
-    platform: 'x64'
-    configuration: 'Debug'
-    maximumCpuCount: true
-  displayName: 'Building with MSBuild'
-
 - task: PublishPipelineArtifact@1
   inputs:
     targetPath: '$(Pipeline.Workspace)\s\src\BuildXL.Setup\bin\x64\Debug\BuildXL.Setup.msi'
