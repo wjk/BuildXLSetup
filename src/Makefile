@@ -1,4 +1,5 @@
 all:
+   if exist BuildXL.Setup\bin\x64\debug\BuildXL.Setup.msi (exit /b)
    nuget.exe restore
    cd BuildXL.Setup.BuildTasks
    msbuild.exe /m /p:Configuration=Debug /p:Platform=x64
