@@ -1,4 +1,4 @@
-name: MSBuild and WiX
+name: NMake and WiX
 
 on:
   push:
