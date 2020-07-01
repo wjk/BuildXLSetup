@@ -7,7 +7,7 @@ pool:
   
 steps:
 - script: |
-    "C:\\Program Files (x86)\\Microsoft Visual Studio\\2019\\Community\\VC\\Auxiliary\\Build\\vcvars64.bat"
+    "C:\\Program Files (x86)\\Microsoft Visual Studio\\2019\\Enterprise\\VC\\Auxiliary\\Build\\vcvars64.bat"
     pushd src
     NMake.exe
   displayName: 'Running NMAKE'
