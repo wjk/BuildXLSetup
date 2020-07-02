@@ -54,7 +54,7 @@ There are two ways to compile BuildXL Installer:
 
 ### Differences between compiling with NMake and compiling with MSBuild:
 
-The only difference is that the BuildXL you package using MSBuild has `.pdb` files (for debugging). This files weight some megabytes and if you want to publish it anywhere, you may do not want to have them.
+The only difference is that the BuildXL you package using MSBuild has `.pdb` files (for debugging purposes). This files weight some megabytes and if you want to publish it anywhere, you may do not want to have them.
 
 ## Contributing
 
