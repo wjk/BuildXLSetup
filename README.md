@@ -1,5 +1,63 @@
 # BuildXL Installer
 
-This repository contains a WiX-based installer for [BuildXL](https://github.com/microsoft/BuildXL).
+## What is BuildXL Installer?
 
-[![NMake and WiX](https://github.com/LumitoLuma/BuildXLSetup/workflows/NMake%20and%20WiX/badge.svg)](https://github.com/LumitoLuma/BuildXLSetup/actions?query=workflow%3A%22NMake+and+WiX%22) [![MSBuild and WiX](https://github.com/LumitoLuma/BuildXLSetup/workflows/MSBuild%20and%20WiX/badge.svg)](https://github.com/LumitoLuma/BuildXLSetup/actions?query=workflow%3A"MSBuild+and+WiX") [![Build status](https://ci.appveyor.com/api/projects/status/rjved60lof4p0sb9?svg=true)](https://ci.appveyor.com/project/LumitoLuma/BuildXLSetup) [![Build Status](https://dev.azure.com/LumitoLuma/GitHub/_apis/build/status/LumitoLuma.BuildXLSetup?branchName=master)](https://dev.azure.com/LumitoLuma/GitHub/_build/latest?definitionId=10&branchName=master)
+In a short way: BuildXL Installer is a WiX-based setup wizard for [BuildXL](https://github.com/microsoft/BuildXL).
+
+And in a long way:
+
+Microsoft Build Accelerator (also known as [BuildXL](https://github.com/microsoft/BuildXL)) is a build engine developed to perform lots of builds at the same time (Microsoft says that you can run 30,000+ builds per day).
+
+This tool is built for big datacenters, since they may need to build hundreds of gigabytes/terabytes of code and this tool makes that process easier and quicker.
+
+The problem is that (originally) you need to compile BuildXL before using it, and you may get some errors while you perform this action. And that is what BuildXL Installer does:
+
+It is a setup wizard that installs a modern version of BuildXL into your computer, adds that folder to PATH (so you can run BuildXL from any place) and replaces the icon of the `.dsc` files with the BuildXL logo.
+
+## Installing BuildXL using BuildXL Installer
+
+All you need is to visit the project website ([gh-pages.lumito.net/BuildXL-Installer](https://gh-pages.lumito.net/BuildXL-Installer/index.html)), then go to the downloads section and finally, download the latest version of BuildXL.
+
+Please note that some versions may not be tested, so they may have bugs.
+
+## Building BuildXL Installer from source code
+
+### Requirements:
+
+- Visual Studio 2019.
+- Windows Installer XML toolset (WiX toolset) version 3.11.x. ATTENTION: ANY OTHER VERSION WILL NOT WORK.
+- Windows Software Development Kit (Windows SDK).
+- A x64-bits Windows version.
+
+### Building source code:
+
+There are two ways to compile BuildXL Installer:
+
+### Compiling BuildXL Installer using NMake (Release edition)
+[![NMake and WiX](https://github.com/LumitoLuma/BuildXLSetup/workflows/NMake%20and%20WiX/badge.svg)](https://github.com/LumitoLuma/BuildXLSetup/actions?query=workflow%3A%22NMake+and+WiX%22) [![Build status](https://ci.appveyor.com/api/projects/status/rjved60lof4p0sb9?svg=true)](https://ci.appveyor.com/project/LumitoLuma/BuildXLSetup) [![Build Status](https://dev.azure.com/LumitoLuma/GitHub/_apis/build/status/LumitoLuma.BuildXLSetup?branchName=master)](https://dev.azure.com/LumitoLuma/GitHub/_build/latest?definitionId=10&branchName=master)
+
+1. Download (or `git clone`) the latest version of the source code
+2. Open Visual Studio 2019 Developer Command Prompt in the folder location
+3. '`cd src`' and run `nmake`
+4. Wait a few minutes...
+5. Done! Check BuildXL.Setup\bin\x64\Debug folder.
+
+### Compiling BuildXL Installer using MSBuild (Debug edition)
+ [![MSBuild and WiX](https://github.com/LumitoLuma/BuildXLSetup/workflows/MSBuild%20and%20WiX/badge.svg)](https://github.com/LumitoLuma/BuildXLSetup/actions?query=workflow%3A"MSBuild+and+WiX") [![Build Status](https://dev.azure.com/LumitoLuma/GitHub/_apis/build/status/LumitoLuma.BuildXLSetup.MSBuild?branchName=master)](https://dev.azure.com/LumitoLuma/GitHub/_build/latest?definitionId=11&branchName=master)
+ 
+1. Download (or `git clone`) the latest version of the source code
+2. Open Visual Studio 2019 Developer Command Prompt in the folder location
+3. '`cd src`' and run `nuget restore`
+4. After that, run `msbuild /m`
+5. Wait a few minutes...
+6. Done! Check BuildXL.Setup\bin\x64\Debug folder.
+
+### Differences between compiling with NMake and compiling with MSBuild:
+
+The only difference is that the BuildXL you package using MSBuild has `.pdb` files (for debugging). This files weight some megabytes and if you want to publish it anywhere, you may do not want to have them.
+
+## Contributing
+
+If you want to contribute to the source code, please fork this repository, make the changes you want and then, create a pull request.
+
+#### © 2019-2020, William Kent (some modifications made by [Lumito](https://github.com/LumitoLuma))
