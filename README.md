@@ -30,31 +30,14 @@ Please note that some versions may not be tested, so they may have bugs.
 - A x64-bits Windows version.
 
 ### Building source code:
+[![MSBuild and WiX](https://github.com/LumitoLuma/BuildXLSetup/workflows/MSBuild%20and%20WiX/badge.svg)](https://github.com/LumitoLuma/BuildXLSetup/actions?query=workflow%3A"MSBuild+and+WiX") [![Build status](https://ci.appveyor.com/api/projects/status/rjved60lof4p0sb9?svg=true)](https://ci.appveyor.com/project/LumitoLuma/BuildXLSetup)
 
-There are two ways to compile BuildXL Installer:
-
-### Compiling BuildXL Installer using NMake (Release edition)
-[![NMake and WiX](https://github.com/LumitoLuma/BuildXLSetup/workflows/NMake%20and%20WiX/badge.svg)](https://github.com/LumitoLuma/BuildXLSetup/actions?query=workflow%3A%22NMake+and+WiX%22) [![Build status](https://ci.appveyor.com/api/projects/status/rjved60lof4p0sb9?svg=true)](https://ci.appveyor.com/project/LumitoLuma/BuildXLSetup) [![Build Status](https://dev.azure.com/LumitoLuma/GitHub/_apis/build/status/LumitoLuma.BuildXLSetup?branchName=master)](https://dev.azure.com/LumitoLuma/GitHub/_build/latest?definitionId=10&branchName=master)
-
-1. Download (or `git clone`) the latest version of the source code
-2. Open Visual Studio 2019 Developer Command Prompt in the folder location
-3. '`cd src`' and run `nmake`
-4. Wait a few minutes...
-5. Done! Check BuildXL.Setup\bin\x64\Debug folder.
-
-### Compiling BuildXL Installer using MSBuild (Debug edition)
- [![MSBuild and WiX](https://github.com/LumitoLuma/BuildXLSetup/workflows/MSBuild%20and%20WiX/badge.svg)](https://github.com/LumitoLuma/BuildXLSetup/actions?query=workflow%3A"MSBuild+and+WiX") [![Build Status](https://dev.azure.com/LumitoLuma/GitHub/_apis/build/status/LumitoLuma.BuildXLSetup.MSBuild?branchName=master)](https://dev.azure.com/LumitoLuma/GitHub/_build/latest?definitionId=11&branchName=master)
- 
 1. Download (or `git clone`) the latest version of the source code
 2. Open Visual Studio 2019 Developer Command Prompt in the folder location
 3. '`cd src`' and run `nuget restore`
 4. After that, run `msbuild /m`
 5. Wait a few minutes...
 6. Done! Check BuildXL.Setup\bin\x64\Debug folder.
-
-### Differences between compiling with NMake and compiling with MSBuild:
-
-The only difference is that the BuildXL you package using MSBuild has `.pdb` files (for debugging purposes). This files weight some megabytes and if you want to publish it anywhere, you may do not want to have them.
 
 ## Contributing
 
